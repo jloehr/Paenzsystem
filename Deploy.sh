@@ -6,13 +6,13 @@ set -e
 # Then runs Upgrade to pull and setup docker images.
 # 
 # Usage:
-#  'curl -sSL https://github.com/jloehr/Paenzsystem/Deploy.sh | sh'
+#  'curl -sSL https://raw.githubusercontent.com/jloehr/Paenzsystem/master/Deploy.sh | sh'
 # or:
-#  'wget -qO- https://github.com/jloehr/Paenzsystem/Deploy.sh | sh'
+#  'wget -qO- https://raw.githubusercontent.com/jloehr/Paenzsystem/master/Deploy.sh | sh'
 #
 
 scripts="Start.sh Stop.sh Upgrade.sh"
-url='https://github.com/jloehr/Paenzsystem/Docker/'
+url='https://raw.githubusercontent.com/jloehr/Paenzsystem/master/Docker/'
 
 echo 'Checking dependencies...'
 
