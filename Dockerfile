@@ -12,5 +12,5 @@ RUN npm install
 COPY Source/ /usr/src/paenzsystem
 
 EXPOSE 8080
-EXPOSE 8433
+EXPOSE 8443
 CMD [ "npm", "start" ]
