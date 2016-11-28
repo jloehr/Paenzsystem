@@ -1,0 +1,10 @@
+# Use whitelist for folders
+*
+!Source
+
+# npm files
+Source/node_modules
+Source/npm-debug.log
+
+# generated development files
+Source/node_devel_data
