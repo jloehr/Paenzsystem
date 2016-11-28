@@ -25,5 +25,11 @@
   "homepage": "https://github.com/jloehr/Paenzsystem#readme",
   "dependencies": {
     "express": "^4.14.0"
+    "production" : {
+      "datadir" : "/data/"
+    },
+    "devel" : {
+      "datadir" : "node_devel_data/"
+    }
   }
 }

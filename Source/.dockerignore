@@ -1,4 +1,6 @@
-# Ignore npm files
-
+# npm files
 node_modules
 npm-debug.log
+
+# generated development files
+node_devel_data
