@@ -4,7 +4,8 @@
   "description": "Registration Office and Bank for a Kinderstadt (Child Play/Kids Town)",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart" : "./Tools/KeyGen.sh"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,10 @@
   "homepage": "https://github.com/jloehr/Paenzsystem#readme",
   "dependencies": {
     "express": "^4.14.0"
+  },
+  "config" : {
+    "ssl_key_name" : "ssl-key.pem",
+    "ssl_cert_name" : "ssl-cert.pem",
     "production" : {
       "datadir" : "/data/"
     },
