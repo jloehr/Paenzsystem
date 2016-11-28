@@ -10,6 +10,7 @@ RUN npm install
 
 # Bundle app source
 COPY Source/ /usr/src/paenzsystem
+RUN chmod -R +rx /usr/src/paenzsystem
 
 EXPOSE 8080
 EXPOSE 8443
