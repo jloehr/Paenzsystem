@@ -4,14 +4,15 @@ set -e
 # Upgrade script for Pänzsystem
 # 
 
+data_dir=$( pwd )
 mongo_pretty="Mongo"
 mongo_image=mongo
 mongo_container=paenzsystem_mongo
-mongo_args="-v $( pwd )/mongodata:/data/db"
+mongo_args="-v $data_dir/mongodata:/data/db"
 paenzsystem_pretty="Pänzsystem"
 paenzsystem_image=julianloehr/paenzsystem
 paenzsystem_container=paenzsystem_server
-paenzsystem_args="-u node --link $mongo_container -p 80:8080 -p 443:8443"
+paenzsystem_args="-u node --link $mongo_container -p 80:8080 -p 443:8443 -v $data_dir/nodedata:/data -e NODE_ENV=production"
 
 # $1 = container
 is_running() {
