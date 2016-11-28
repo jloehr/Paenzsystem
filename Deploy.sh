@@ -26,8 +26,6 @@ if ! command -v wget >/dev/null 2>&1 ; then
 	exit 1
 fi
 
-mkdir "mongodata" || true
-
 echo 'Downloading scripts...'
 
 for script in $scripts ; do
