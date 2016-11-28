@@ -8,11 +8,13 @@ data_dir=$( pwd )
 mongo_pretty="Mongo"
 mongo_image=mongo
 mongo_container=paenzsystem_mongo
-mongo_args="-v $data_dir/mongodata:/data/db"
+mongo_data_dir ="$data_dir/mongodata"
+mongo_args="-v $mongo_data_dir:/data/db"
 paenzsystem_pretty="Pänzsystem"
 paenzsystem_image=julianloehr/paenzsystem
 paenzsystem_container=paenzsystem_server
-paenzsystem_args="-u node --link $mongo_container -p 80:8080 -p 443:8443 -v $data_dir/nodedata:/data -e NODE_ENV=production"
+paenzsystem_data_dir="$data_dir/nodedata"
+paenzsystem_args="-u node --link $mongo_container -p 80:8080 -p 443:8443 -v $paenzsystem_data_dir:/data -e NODE_ENV=production"
 
 # $1 = container
 is_running() {
@@ -55,9 +57,11 @@ replace_image() {
 }
 
 
-# $1 = upgrade - $2 = stop - $3 = image - $4 = container - $5 = pretty - $6 = args
+# $1 = upgrade - $2 = stop - $3 = image - $4 = container - $5 = pretty - $6 = args - $7 = data_dir
 make_container() {
 	if [ $1 -eq 1 ] ; then
+		mkdir -p $7
+
 		if [ $2 -eq 1 ] ; then
 			echo "Running $5..."
 			docker_cmd="run -d"
@@ -123,8 +127,8 @@ if [ $paenzsystem_upgrade -eq 1 -o $mongo_upgrade -eq 1 ] ; then
 	replace_image $paenzsystem_upgrade $paenzsystem_container $paenzsystem_image $paenzsystem_pretty
 
 	# Restart/Recreate containers
-	make_container $mongo_upgrade $mongo_stop $mongo_image $mongo_container $mongo_pretty "$mongo_args" 
-	make_container $paenzsystem_upgrade $paenzsystem_stop $paenzsystem_image $paenzsystem_container $paenzsystem_pretty "$paenzsystem_args"
+	make_container $mongo_upgrade $mongo_stop $mongo_image $mongo_container $mongo_pretty "$mongo_args" $mongo_data_dir
+	make_container $paenzsystem_upgrade $paenzsystem_stop $paenzsystem_image $paenzsystem_container $paenzsystem_pretty "$paenzsystem_args" $paenzsystem_data_dir
 
 	echo "Done!"
 else
