@@ -1,6 +1,5 @@
 var express = require('express')
 var https = require('https');
-var http = require('http');
 var fs = require('fs');
 var app = express();
 
@@ -15,10 +14,6 @@ const options = {
   cert: fs.readFileSync(datadir+process.env.npm_package_config_ssl_cert_name)
 };
 
-http.createServer(app).listen(8080, function () {
-  console.log('Example app listening on port 8080!')
-});
-
 https.createServer(options, app).listen(8443, function () {
   console.log('Example app listening on port 8443!')
 });
@@ -27,3 +22,14 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 })
 
+// HTTP (80) redirect to HTTPS (443)
+var http = require('http');
+var redirect = express();
+
+http.createServer(redirect).listen(8080, function () {
+  console.log('Redirect to HTTPS on port 8080!')
+});
+
+redirect.all('*',function(req,res){  
+    res.redirect(301, "https://" + req.headers.host + req.url);
+});
