@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/jloehr/Paenzsystem#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "mongodb": "^2.2.12"
   },
   "config": {
     "ssl_key_name": "ssl-key.pem",
