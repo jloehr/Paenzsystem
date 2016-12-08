@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prestart" : "./tools/keygen.sh"
+    "prestart": "./tools/keygen.sh"
   },
   "repository": {
     "type": "git",
@@ -27,14 +27,14 @@
   "dependencies": {
     "express": "^4.14.0"
   },
-  "config" : {
-    "ssl_key_name" : "ssl-key.pem",
-    "ssl_cert_name" : "ssl-cert.pem",
-    "production" : {
-      "datadir" : "/data/"
+  "config": {
+    "ssl_key_name": "ssl-key.pem",
+    "ssl_cert_name": "ssl-cert.pem",
+    "production": {
+      "datadir": "/data/"
     },
-    "devel" : {
-      "datadir" : "node_devel_data/"
+    "devel": {
+      "datadir": "node_devel_data/"
     }
   }
 }
