@@ -1,10 +1,14 @@
 # Use whitelist for folders
 *
-!Source
+!Server
+!WebFrontEnd
 
 # npm files
-Source/node_modules
-Source/npm-debug.log
+*/node_modules
+*/npm-debug.log
+
+# Auto generated Web Front End
+Server/public
 
 # generated development files
-Source/node_devel_data
+Server/node_devel_data
