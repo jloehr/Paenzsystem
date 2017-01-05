@@ -66,7 +66,7 @@ make_container() {
 			echo "Running $5..."
 			docker_cmd="run -d"
 		else
-		echo "Creating $5..."
+			echo "Creating $5..."
 			docker_cmd="create"
 		fi
 
