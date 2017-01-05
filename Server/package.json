@@ -1,5 +1,5 @@
 {
-  "name": "paenzsystem",
+  "name": "paenzsystem-server",
   "version": "0.2.0",
   "description": "Registration Office and Bank for a Kinderstadt (Child Play/Kids Town)",
   "main": "server.js",
