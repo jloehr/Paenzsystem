@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prestart": "./tools/keygen.sh"
+    "install": "./tools/develdb.sh setup",
+    "postuninstall": "./tools/develdb.sh remove",
+    "prestart": "./tools/keygen.sh && ./tools/develdb.sh start",
+    "stop": "./tools/develdb.sh stop"
   },
   "repository": {
     "type": "git",
