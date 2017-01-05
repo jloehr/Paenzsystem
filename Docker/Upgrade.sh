@@ -34,7 +34,7 @@ need_upgrade() {
 	if [ "$current" != "$latest" ] ; then
 		return 0
 	else
-		return 0
+		return 1
 	fi
 }
 
