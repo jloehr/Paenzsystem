@@ -1,8 +1,8 @@
 var MongoClient = require('mongodb').MongoClient
 
-const url = 'mongodb://localhost:27017/paenzsystem';
+function connect(next, config) {
+	const url = `mongodb://${config.db_host}:27017/paenzsystem`;
 
-function connect(next) {
 	MongoClient.connect(url, function(error, db) {
 		if (error) throw error;
 

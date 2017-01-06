@@ -4,20 +4,17 @@ var app = express();
 var https = require('./services/https.js');
 var http = require('./services/http.js');
 var db = require('./services/mongodb.js');
+var config = require('./config/config.js');
 
-const production = (process.env.NODE_ENV == 'production');
-console.log('Node is running in ' + (production ? 'production' : 'development') + ' mode!');
-
-const datadir = production ? process.env.npm_package_config_production_datadir : process.env.npm_package_config_devel_datadir
-console.log('Node data directory: ' + datadir);
+console.log('Node is running in ' + (config.production ? 'production' : 'development') + ' mode!');
+console.log('Node data directory: ' + config.datadir);
 
 function startServer(db)
 {
 	http.start();
-	https.start(app, datadir);
+	https.start(app, config);
 
 	app.use(express.static('public'));
 }
 
-db.connect(startServer);
-
+db.connect(startServer, config);
