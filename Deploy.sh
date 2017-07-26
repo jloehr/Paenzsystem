@@ -11,7 +11,7 @@ set -e
 #  'wget -qO- https://raw.githubusercontent.com/jloehr/Paenzsystem/master/Deploy.sh | sh'
 #
 
-scripts="Start.sh Stop.sh Upgrade.sh"
+scripts="paenzsystem"
 url='https://raw.githubusercontent.com/jloehr/Paenzsystem/master/Docker/'
 
 echo 'Checking dependencies...'
@@ -33,6 +33,6 @@ for script in $scripts ; do
 	chmod u+x $script
 done
 
-echo 'Run Upgrade to pull and create containers...'
+echo 'Run upgrade to pull and create containers...'
 
-. ./Upgrade.sh
+. ./paenzsystem upgrade
