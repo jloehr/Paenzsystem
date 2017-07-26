@@ -36,5 +36,8 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+# Generated developmen frontend
+Server/public
+
 # Generated development data
 node_devel_data
