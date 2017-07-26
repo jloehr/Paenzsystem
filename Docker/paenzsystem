@@ -19,9 +19,11 @@ paenzsystem_args="-u node --link $mongo_container -p 80:8080 -p 443:8443 -v $pae
 BASENAME=$(basename $0)
 USAGE="$BASENAME [COMMAND]
 
-    start           Starts docker images
-    stop            Stops docker images
-    upgrade         Pulls new docker images & replaces old ones
+Tool to control Pänzsystem's docker containers
+
+    start           Starts docker containers
+    stop            Stops docker containers
+    upgrade         Pulls new docker images & replaces containers
 "
 ACTION=$1
 shift
