@@ -18,7 +18,7 @@ COPY Server/ /usr/src/paenzsystem
 COPY WebFrontEnd/ /usr/src/webfrontend
 
 # Make WebFrontEnd
-RUN npm run build && mv /usr/src/webfrontend/dist /usr/src/paenzsystem/public && rm -rf /usr/src/webfrontend
+RUN npm run build-docker && rm -rf /usr/src/webfrontend
 
 # Setup Server
 WORKDIR /usr/src/paenzsystem

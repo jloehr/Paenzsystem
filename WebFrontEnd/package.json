@@ -7,7 +7,8 @@
     "ng": "ng",
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
-    "build" : "ng build"
+    "build" : "ng build --output-path ./../Server/public/",
+    "build-docker" : "ng build --output-path ./../paenzsystem/public/ --prod"
   },
   "repository": {
     "type": "git",
