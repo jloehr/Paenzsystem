@@ -8,4 +8,4 @@ if [ "$NODE_ENV" = "production" ] ; then
 	exit 0;
 fi
 
-. ../Docker/DevelDB.sh "$@"
+../Docker/devel.sh $@ -m -p -d $npm_package_config_devel_datadir -n paenzsystem_mongo_devel
