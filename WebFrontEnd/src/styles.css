@@ -2,3 +2,11 @@
 
 @import 'css/bootstrap.min.css';     
 
+body {
+	background-color: #b7d432;
+}
+
+div.content {
+	background-color: #AAAAAA;
+	width:1000px
+}
