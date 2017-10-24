@@ -28,6 +28,26 @@ router.route('/')
 	});
 	*/
 
+router.route('/:citizen_id')
+	.get(function(req, res) {
+
+		Citizen.find({ CitizenID : req.params.citizen_id }, function(err, Citizen) {
+            if (err)
+                res.send(err);
+
+            res.json(Citizen);
+        });
+	})
+	.put(function(req, res) {
+
+		Citizen.findOneAndUpdate({ CitizenID : req.params.citizen_id }, req.body, { new: true }, function(err, Citizen) {
+            if (err)
+                res.send(err);
+
+            res.json(Citizen);
+        });
+	})
+
 module.exports = { 
 	path: '/citizens',
 	router: router 
