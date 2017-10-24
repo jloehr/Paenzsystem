@@ -25,10 +25,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Set up Endpoints
 app.use(express.static('public'));	
 app.use('/api', api);
+app.use(function(req, res, next) {
+	res.redirect('/');
+});
 
 // Set up API Endpoints
 api.use(citizens.path, citizens.router);
 api.use(bank_accounts.path, bank_accounts.router);
+api.use(function(req, res, next) {
+	res.sendStatus(404);
+});
 
 // Start listening
 http.start();
