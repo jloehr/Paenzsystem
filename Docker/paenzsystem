@@ -46,7 +46,7 @@ start_container_if()
 # $1 = container - $2 = pretty
 stop_container() {
 	echo "Stopping $2..."
-	docker stop $1
+	docker stop $1 || true
 }
 
 # $1 = stop - $2 = container - $3 = pretty
