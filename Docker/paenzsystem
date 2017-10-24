@@ -32,7 +32,7 @@ shift
 start_container()
 {
 	echo "Starting $2..."
-	docker stop $1
+	docker start $1
 }
 
 # $1 = stop - $2 = container - $3 = pretty
