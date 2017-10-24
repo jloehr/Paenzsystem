@@ -4,6 +4,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 
+import { BankingModule } from './banking/banking.module';
 import { RegistrationModule } from './registration/registration.module';
 
 import { AppRoutingModule }     from './app-routing.module';
@@ -16,6 +17,7 @@ import { AppRoutingModule }     from './app-routing.module';
     NgbModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
+    BankingModule,
     RegistrationModule
   ],
   providers: [],
