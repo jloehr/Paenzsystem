@@ -5,7 +5,7 @@ var Citizen = require('../models/citizen.js');
 router.route('/')
 	.get(function(req, res) {
 
-		Citizen.find(function(err, Citizens) {
+		Citizen.find({},'CitizenID FirstName LastName', function(err, Citizens) {
 
             if (err)
                 res.send(err);
