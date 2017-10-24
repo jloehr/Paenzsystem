@@ -35,4 +35,5 @@ done
 
 echo 'Run upgrade to pull and create containers...'
 
-. ./paenzsystem upgrade
+set -- upgrade
+. ./paenzsystem
