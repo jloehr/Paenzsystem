@@ -18,7 +18,7 @@ var CitizenSchema = new Schema({
     Annotation: String,
     CheckIns: [Date],
     CheckOuts: [Date],
-    Balance: { type: Number, select: false },
+    Balance: { type: Number, select: false, default: 0 },
     Transactions : { type:[Number], select: false }
 });
 

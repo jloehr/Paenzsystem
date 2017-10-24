@@ -9,6 +9,7 @@ var http = require('./services/http.js');
 var config = require('./config/config.js');
 
 var citizens = require('./routes/citizens.js');
+var bank_accounts = require('./routes/bank_accounts.js');
 
 console.log('Node is running in ' + (config.production ? 'production' : 'development') + ' mode!');
 console.log('Node data directory: ' + config.datadir);
@@ -27,6 +28,7 @@ app.use('/api', api);
 
 // Set up API Endpoints
 api.use(citizens.path, citizens.router);
+api.use(bank_accounts.path, bank_accounts.router);
 
 // Start listening
 http.start();
