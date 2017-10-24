@@ -5,7 +5,7 @@ var Counter = require('./counter.js');
 const ModelID = 'Citizen';
 
 var CitizenSchema = new Schema({
-	CitizenID: Number,
+	CitizenID: { type: Number, index: true, unique: true},
     FirstName: String,
     LastName: String,
     Birthdate: Date,
@@ -16,11 +16,15 @@ var CitizenSchema = new Schema({
     	Email: String
     },
     Annotation: String,
+    CheckIns: [Date],
+    CheckOuts: [Date],
+    Balance: { type: Number, select: false },
+    Transactions : { type:[Number], select: false }
 });
 
 CitizenSchema.pre('save', function(next) {
     var NewCitizen = this;
-    Counter.findByIdAndUpdate({_id: ModelID}, {$inc: { Counter: 1} }, {new: true, upsert: true}, function(err, Counter) {
+    Counter.findByIdAndUpdate({ _id: ModelID }, { $inc: { Counter: 1 } }, { new: true, upsert: true }, function(err, Counter) {
         NewCitizen.CitizenID = Counter.Counter;
         next();
     });

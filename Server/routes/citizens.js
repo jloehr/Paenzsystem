@@ -40,13 +40,40 @@ router.route('/:citizen_id')
 	})
 	.put(function(req, res) {
 
-		Citizen.findOneAndUpdate({ CitizenID : req.params.citizen_id }, req.body, { new: true }, function(err, Citizen) {
+		// Make sure no one can change the Citizen ID
+		var UpdatedCitizen = req.body;
+		UpdatedCitizen.CitizenID = req.params.citizen_id;
+
+		Citizen.findOneAndUpdate({ CitizenID : UpdatedCitizen.CitizenID }, UpdatedCitizen, { new: true }, function(err, Citizen) {
             if (err)
                 res.send(err);
 
             res.json(Citizen);
         });
 	})
+
+router.route('/:citizen_id/check_in')
+	.put(function(req, res) {
+
+		Citizen.findOneAndUpdate({ CitizenID : req.params.citizen_id }, { $push: { CheckIns: new Date() }}, { new: true }, function(err, Citizen) {
+            if (err)
+                res.send(err);
+
+            res.json(Citizen);
+        });
+	});
+
+router.route('/:citizen_id/check_out')
+	.put(function(req, res) {
+
+		Citizen.findOneAndUpdate({ CitizenID : req.params.citizen_id }, { $push: { CheckOuts: new Date() }}, { new: true }, function(err, Citizen) {
+            if (err)
+                res.send(err);
+
+            res.json(Citizen);
+        });
+	});
+
 
 module.exports = { 
 	path: '/citizens',
