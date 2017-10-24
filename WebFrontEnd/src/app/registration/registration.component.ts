@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
@@ -22,7 +23,10 @@ export class RegistrationComponent implements OnInit {
 
   public model: any;
 
-  constructor(private citizenService: CitizenService) { }
+  constructor(
+    private router: Router,
+    private citizenService: CitizenService
+  ) { }
 
   ngOnInit(): void {
   	this.updateCitizens();
@@ -46,7 +50,11 @@ export class RegistrationComponent implements OnInit {
 
   onSearchChange(component) {
     if(component.CitizenID) { 
-     console.log(component);
+      this.router.navigate([this.baseroute, component.CitizenID]);
     }
+  }
+
+  onActivate(component) {
+    this.headerImage = component.headerImage;
   }
 }

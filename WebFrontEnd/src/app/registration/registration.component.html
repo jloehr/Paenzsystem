@@ -5,15 +5,16 @@
 </ng-template>
 
 
-<div class="container w-100">
+<div class="container content">
 <div class="row">
-  <div class="col-sm"><label for="typeahead-basic">Suche:</label>
-  <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="model" (ngModelChange)="onSearchChange($event)" [ngbTypeahead]="search" [resultTemplate]="rt" [inputFormatter]="formatter"/>
+  <div class="col justify-content-center text-center align-middle">
+    <label for="typeahead-basic" class="float-left">Suche:</label>
+    <input id="typeahead-basic" type="text" class="form-control w-50 " [(ngModel)]="model" (ngModelChange)="onSearchChange($event)" [ngbTypeahead]="search" [resultTemplate]="rt" [inputFormatter]="formatter"/>
+  </div>
+  <div class="col justify-content-center text-center align-middle"><button type="button" class="btn btn-primary">Neues Kind</button></div>
 </div>
-  <div class="col-sm">Neues Kind</div>
-</div>
-<div class="row">
-  	<router-outlet name='content'></router-outlet>
+<div class="row justify-content-center">
+  	<router-outlet (activate)='onActivate($event)'></router-outlet>
 </div>
 </div>
 
