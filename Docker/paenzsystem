@@ -14,7 +14,7 @@ paenzsystem_pretty="Pänzsystem"
 paenzsystem_image=julianloehr/paenzsystem
 paenzsystem_container=paenzsystem_server
 paenzsystem_data_volume="paenzsystem_nodedata"
-paenzsystem_args="-u node --link $mongo_container -p 80:8080 -p 443:8443 --mount source=$paenzsystem_data_volume,target=/data -e NODE_ENV=production"
+paenzsystem_args="--link $mongo_container -p 80:8080 -p 443:8443 --mount source=$paenzsystem_data_volume,target=/data -e NODE_ENV=production"
 
 BASENAME=$(basename $0)
 USAGE="$BASENAME [COMMAND]
