@@ -9,12 +9,10 @@ var CitizenSchema = new Schema({
     FirstName: String,
     LastName: String,
     Birthdate: Date,
-    Parent: {
-    	FirstName: String,
-    	LastName: String,
-    	Phone: String,
-    	Email: String
-    },
+    ParentFirstName: String,
+    ParentLastName: String,
+    Phone: String,
+    Email: String,
     Annotation: String,
     CheckIns: [Date],
     CheckOuts: [Date],
