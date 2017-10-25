@@ -8,7 +8,7 @@ import { CreateCitizenComponent } from './registration/createcitizen.component';
 import { EditCitizenComponent } from './registration/editcitizen.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/registration', pathMatch: 'full' },
+  { path: '', redirectTo: '/registration/new', pathMatch: 'full' },
   { 
     path: 'banking',
     component: BankingComponent
@@ -18,16 +18,16 @@ const routes: Routes = [
     component: RegistrationComponent,
     children: [
   	{ 
-  	   path: 'new',  
-  	   component: CreateCitizenComponent
+  	    path: 'new',  
+  	    component: CreateCitizenComponent
   	},
     { 
-       path: ':id/edit',  
-       component: EditCitizenComponent
+        path: ':id/edit',  
+        component: EditCitizenComponent
     },
   	{ 
-  	   path: ':id',  
-  	   component: CitizenComponent
+  	    path: ':id',  
+  	    component: CitizenComponent
   	}
     ] 
   } 
