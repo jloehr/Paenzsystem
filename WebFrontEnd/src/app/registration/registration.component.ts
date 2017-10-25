@@ -59,6 +59,5 @@ export class RegistrationComponent implements OnInit {
   }
 
   onActivate(component) {
-    this.headerImage = component.headerImage;
   }
 }
