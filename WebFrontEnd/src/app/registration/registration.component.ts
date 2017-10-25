@@ -54,6 +54,10 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
+  onSearchFocus() {
+    this.updateCitizens();
+  }
+
   onActivate(component) {
     this.headerImage = component.headerImage;
   }
