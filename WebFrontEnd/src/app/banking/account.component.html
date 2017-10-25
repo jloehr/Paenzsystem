@@ -16,7 +16,11 @@
      <div class="col"><button type="button" class="btn bg-success" (click)="deposit()" >Einzahlen</button></div>
      <div class="col"><button type="button" class="btn bg-danger" (click)="withdraw()" >Auszahlen</button></div>
    </div>
+  <div class="row"><h3>Transaktionen</h3></div>
+  <div class="row">
+    <div class="col">Datum</div><div class="col">Soll &amp; Haben</div>
+  </div>
   <div class="row" *ngFor="let transaction of account.Transactions" >
-    <div class="col">{{transaction.Timestamp}}</div><div class="col">{{transaction.Amount}}</div>
+    <div class="col text-left">{{transaction.Timestamp}}</div><div class="col text-right">{{transaction.Amount}}</div>
   </div>
 </div>
