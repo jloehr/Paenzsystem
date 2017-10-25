@@ -14,6 +14,8 @@ export class EditCitizenComponent implements OnInit  {
   citizen = new Citizen();
   title = 'Bearbeiten';
   showForm = false;
+  showWait = false;
+  showResult = false;
 
   constructor(
     private citizenService: CitizenService,
