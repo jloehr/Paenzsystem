@@ -14,13 +14,13 @@
   </div>
   <div class="form-group">
     <label for="birthday">Geburtstag</label>
-    <input class="form-control"
+    <input class="form-control" type="date"
          id="birthday" [(ngModel)]="citizen.Birthday" ngbDatepicker #d="ngbDatepicker" name="birthday">
     <button class="input-group-addon" (click)="d.toggle()" type="button">Auswählen</button>
   </div>
    <div class="form-group">
     <label for="phone">Telefon</label>
-    <input type="text" class="form-control" id="phone"  name="phone" [(ngModel)]="citizen.Phone" >
+    <input type="tel" class="form-control" id="phone"  name="phone" [(ngModel)]="citizen.Phone" >
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -35,6 +35,10 @@
   <div class="form-group">
     <label for="email">Email</label>
     <input type="email" class="form-control" id="email" name="email" [(ngModel)]="citizen.Email" >
+  </div>
+  <div class="form-group">
+    <label for="phone">Bemerkung</label>
+    <textarea class="form-control" id="annotation" name="annotation" rows="3" [(ngModel)]="citizen.Annotation"></textarea>
   </div>
   <button type="submit" class="btn btn-primary" (click)="onSubmit()">Absenden</button>
 </div>
