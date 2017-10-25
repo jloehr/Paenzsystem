@@ -1,5 +1,5 @@
 export class Citizen {
-	CitizenID: string;
+	CitizenID: number;
     FirstName: string;
     LastName: string;
     Birthdate: any;

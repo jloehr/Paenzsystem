@@ -54,6 +54,22 @@ export class CitizenService {
       .catch(this.handleError);
   }
 
+  checkIn(id: number): Promise<Citizen> {
+    const url = `${this.citizensUrl}/${id}/check_in`;
+    return this.http.put(url, '', {headers: this.headers})
+      .toPromise()
+      .then(response => response.json() as Citizen)
+      .catch(this.handleError);
+  }
+
+  checkOut(id: number): Promise<Citizen> {
+    const url = `${this.citizensUrl}/${id}/check_out`;
+    return this.http.put(url, '', {headers: this.headers})
+      .toPromise()
+      .then(response => response.json() as Citizen)
+      .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);

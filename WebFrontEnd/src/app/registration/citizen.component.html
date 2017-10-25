@@ -1,4 +1,25 @@
-<div *ngIf="citizen" class="w-100 justify-content-center text-center">
-  <div class="raw"><h1>{{citizen.FirstName}} {{citizen.LastName}}</h1></div>
-  <div class="raw"><a routerLink="/registration/{{citizen.CitizenID}}/edit" routerLinkActive="active"><button type="button" class="btn btn-primary">Bearbeiten</button></a></div>
+<div *ngIf="citizen" class="justify-content-center text-center">
+  <div class="jumbotron">
+    <div class="row text-center {{nameColor()}} justify-content-center"><h1>{{citizen.FirstName}} {{citizen.LastName}}</h1></div>
+    <div class="row justify-content-center">
+      <div class="col text-right">Geburtstag:</div>
+      <div class="col text-left">{{citizen.Birthday}}</div>
+      <div class="col text-right">Telefon:</div>
+      <div class="col text-left">{{citizen.Phone}}</div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col text-right">Erzieher:</div>
+      <div class="col text-left">{{citizen.ParentFirstName}} {{citizen.ParentLastName}}</div>
+      <div class="col text-right">Email:</div>
+      <div class="col text-left">{{citizen.Email}}</div>
+    </div>
+  </div>
+  <div *ngIf="!checkedIn()" class="row justify-content-center"><button type="button" class="btn bg-success" (click)="onCheckIn()" >Gelände betreten</button></div>
+  <div *ngIf="checkedIn()" class="row justify-content-center"><button type="button" class="btn bg-danger" (click)="onCheckOut()">Gelände verlassen</button></div>
+  <div class="jumbotron">
+    <div class="row text-center justify-content-center">Bemerkung</div>
+    <div class="row justify-content-center">{{citizen.Annotation}}</div>
+    <div class="row justify-content-center">Historie</div>
+  </div>
+  <div class="row justify-content-center"><a routerLink="/registration/{{citizen.CitizenID}}/edit" routerLinkActive="active"><button type="button" class="btn btn-primary">Bearbeiten</button></a></div>
 </div>
