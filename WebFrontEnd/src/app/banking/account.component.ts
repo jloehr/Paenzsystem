@@ -43,7 +43,9 @@ export class AccountComponent implements OnInit {
   }
 
   doTransaction(amount: number) {
-    console.log(amount);
+    if(amount == 0)
+      return;
+    
     this.accountService.doTransaction(this.id, amount)
     .then(account => { console.log(account); this.account = account; });
   }
@@ -55,9 +57,6 @@ export class AccountComponent implements OnInit {
   }
 
   withdraw() {
-    if(this.amount == 0)
-    return;
-
     if(this.amount > this.account.Balance)
     {
       this.showAlert = true;
