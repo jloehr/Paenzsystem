@@ -1,0 +1,22 @@
+<div *ngIf="citizen">
+  <div class="row justify-content-center text-center align-middle"><h1>{{citizen.FirstName}} {{citizen.LastName}}</h1></div>
+  <div class="row justify-content-center text-center align-middle"><h2>Ausweisnummer: {{citizen.CitizenID}}</h2></div>
+</div>
+<div *ngIf="account">
+  <div class="row justify-content-center text-center align-middle">Kontostand: {{account.Balance}}</div>
+  <div class="row">
+    <div class="form-group col">
+       <label for="parentfirstname">Betrag</label>
+       <input type="number" class="form-control w-100" id="amount" name="amount" step="1" pattern="\d+" [(ngModel)]="amount">
+     </div>
+   </div>
+
+   <div class="row"><ngb-alert *ngIf="showAlert" type="danger" (close)="closeAlert()">Nicht genügend Guthaben!</ngb-alert></div>
+   <div class="row">
+     <div class="col"><button type="button" class="btn bg-success" (click)="deposit()" >Einzahlen</button></div>
+     <div class="col"><button type="button" class="btn bg-danger" (click)="withdraw()" >Auszahlen</button></div>
+   </div>
+  <div class="row" *ngFor="let transaction of account.Transactions" >
+    <div class="col">{{transaction.Timestamp}}</div><div class="col">{{transaction.Amount}}</div>
+  </div>
+</div>

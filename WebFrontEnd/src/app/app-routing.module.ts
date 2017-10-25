@@ -2,6 +2,7 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { BankingComponent } from './banking/banking.component';
+import { AccountComponent } from './banking/account.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { CitizenComponent } from './registration/citizen.component';
 import { CreateCitizenComponent } from './registration/createcitizen.component';
@@ -11,7 +12,13 @@ const routes: Routes = [
   { path: '', redirectTo: '/registration/new', pathMatch: 'full' },
   { 
     path: 'banking',
-    component: BankingComponent
+    component: BankingComponent,
+    children: [
+    { 
+        path: ':id',  
+        component: AccountComponent
+    }
+    ]
   },
   {
     path: 'registration',
