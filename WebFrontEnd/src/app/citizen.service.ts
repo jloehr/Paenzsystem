@@ -41,7 +41,7 @@ export class CitizenService {
     return this.http
       .post(this.citizensUrl, JSON.stringify(citizen), {headers: this.headers})
       .toPromise()
-      .then(res => res.json()[0] as Citizen)
+      .then(res => res.json() as Citizen)
       .catch(this.handleError);
   }
 
