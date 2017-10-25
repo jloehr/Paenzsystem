@@ -25,7 +25,7 @@ router.route('/:citizen_id')
             if((Account.Balance + Amount) < 0)
             	res.json({Error: 'Insufficent funds'});
             else
-				Citizen.findOneAndUpdate({ CitizenID : req.params.citizen_id }, { $set: { Balance : Account.Balance + Amount }, $push: { Transactions: Amount }}, { new: true, fields: 'Balance Transactions' }, function(err, Citizen) {
+				Citizen.findOneAndUpdate({ CitizenID : req.params.citizen_id }, { $set: { Balance : Account.Balance + Amount }, $push: { Transactions: { Timestamp : new Date(), Amount : Amount } } }, { new: true, fields: 'Balance Transactions' }, function(err, Citizen) {
             	if (err)
                 	res.send(err);
 
