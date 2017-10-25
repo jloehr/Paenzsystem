@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { RegistrationComponent } from './registration.component';
 import { CitizenComponent } from './citizen.component';
+import { CreateCitizenComponent } from './createcitizen.component';
 
 import { AppRoutingModule } from '../app-routing.module';
 import { CitizenService } from '../citizen.service';
@@ -13,9 +14,10 @@ import { CitizenService } from '../citizen.service';
 @NgModule({
   declarations: [
     RegistrationComponent,
-    CitizenComponent
+    CitizenComponent,
+    CreateCitizenComponent
   ],
-  exports: [ RegistrationComponent, CitizenComponent ],
+  exports: [ RegistrationComponent, CitizenComponent, CreateCitizenComponent ],
   imports: [ AppRoutingModule, FormsModule, HttpModule, NgbModule, BrowserModule ],
   providers: [ CitizenService ],
   bootstrap: [ RegistrationComponent ]

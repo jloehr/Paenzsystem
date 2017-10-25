@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BankingComponent } from './banking/banking.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { CitizenComponent } from './registration/citizen.component';
+import { CreateCitizenComponent } from './registration/createcitizen.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/registration', pathMatch: 'full' },
@@ -16,9 +17,13 @@ const routes: Routes = [
     component: RegistrationComponent,
     children: [
   	{ 
+  	   path: 'new',  
+  	   component: CreateCitizenComponent
+  	},
+  	{ 
   	   path: ':id',  
   	   component: CitizenComponent
-  	   }
+  	}
     ] 
   } 
 ];
